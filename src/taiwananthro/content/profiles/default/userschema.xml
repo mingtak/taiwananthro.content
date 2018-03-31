@@ -1,0 +1,92 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema" i18n:domain="mingtak.custom">
+  <schema name="member-fields">
+
+    <field name="user_paid" type="zope.schema.Bool" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_paid">user_paid</title>
+    </field>
+
+    <field name="user_year" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_year">user_year</title>
+    </field>
+
+    <field name="user_pass_date" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_pass_date">user_pass_date</title>
+    </field>
+
+    <field name="user_role" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_role">user_role</title>
+    </field>
+
+    <field name="user_name" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_name">user_name</title>
+    </field>
+
+    <field name="user_job" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_job">user_job</title>
+    </field>
+
+
+
+    <field name="user_office_address" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_office_address">user_office_address</title>
+    </field>
+    
+    <field name="user_office" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_office">user_office</title>
+    </field>
+    
+    <field name="user_district" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_district">user_district</title>
+    </field>
+    
+    <field name="user_area" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_area">user_area</title>
+    </field>
+    
+    <field name="user_code" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_code">user_code</title>
+    </field>
+      
+    <field name="user_address" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_address">user_address</title>
+    </field>
+    
+    <field name="user_email" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_email">user_email</title>
+    </field>
+    
+    <field name="user_education" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_education">user_education</title>
+    </field>
+    
+    <field name="user_experience" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_experience">user_experience</title>
+    </field>
+    
+    <field name="user_recommend1" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_recommend1">user_recommend1</title>
+    </field>
+    
+    <field name="user_recommend2" type="zope.schema.TextLine" users:forms="In User Profile">
+      <required>False</required>
+      <title i18n:translate="user_recommend2">user_recommend2</title>
+    </field>
+  
+  </schema>
+</model>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layers>
+  <layer
+      name="taiwananthro.content"
+      interface="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      />
+</layers>

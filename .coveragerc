@@ -1,0 +1,6 @@
+[report]
+include =
+    src/taiwananthro/*
+omit =
+    */test*
+    */upgrades/*

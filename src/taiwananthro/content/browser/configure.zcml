@@ -1,0 +1,54 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="taiwananthro.content">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="taiwananthro.content"
+      type="plone"
+      directory="static"
+      />
+  <browser:page
+      name='create_news'
+      for='*'
+      class='.views.CreateNews'
+      permission='zope2.View'
+      />
+  <browser:page
+      name='create_disseration'
+      for='*'
+      class='.views.CreateDisseration'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+  <browser:page
+      name='anthro_report_view'
+      for='*'
+      class='.views.AnthroReportView'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+  <browser:page
+      name='cover'
+      for='*'
+      class='.views.Cover'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+  <browser:page
+      name='news_view'
+      for='*'
+      class='.views.NewsView'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+</configure>

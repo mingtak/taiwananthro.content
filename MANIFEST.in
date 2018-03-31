@@ -1,0 +1,4 @@
+graft src/taiwananthro
+graft docs
+include *.rst
+global-exclude *.pyc

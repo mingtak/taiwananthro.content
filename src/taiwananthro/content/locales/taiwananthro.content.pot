@@ -1,0 +1,108 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-03-31 03:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: taiwananthro.conetent\n"
+
+#: ./interfaces.py:68
+msgid "AnthroReport Image."
+msgstr "封面"
+
+#: ./interfaces.py:43
+msgid "Author"
+msgstr "作者"
+
+#: ./interfaces.py:25
+msgid "Category"
+msgstr "分類"
+
+#: ./interfaces.py:36
+msgid "Content Text"
+msgstr "內容"
+
+#: ./interfaces.py:64
+msgid "File"
+msgstr "檔案"
+
+#: ./interfaces.py:47
+msgid "Key Word"
+msgstr "關鍵字"
+
+#: ./interfaces.py:32
+msgid "News Image."
+msgstr "圖片"
+
+
+#: ./interfaces.py:21
+msgid "Title"
+msgstr "標題"
+
+#: ./interfaces.py:74
+msgid "Web Site"
+msgstr "網站"
+
+#: ./interfaces.py:78
+msgid "Web Site URL"
+msgstr "網址"
+
+#: ./interfaces.py:27
+msgid "anthropology_category"
+msgstr "人類學界相關新聞"
+
+#: ./interfaces.py:26
+msgid "anthropology_news"
+msgstr "學會新聞"
+
+#: ./interfaces.py:28
+msgid "anthropology_plan"
+msgstr "國科會通過之人類學門計畫等"
+
+#: ./interfaces.py:83
+msgid "domestic"
+msgstr "國內"
+
+#: ./interfaces.py:82
+msgid "domestic? foreign?"
+msgstr "國內或國外:"
+
+#: ./interfaces.py:26
+msgid "event"
+msgstr "活動"
+
+#: ./interfaces.py:83
+msgid "foreign"
+msgstr "國外"
+
+#: ./interfaces.py:26
+msgid "institute_news"
+msgstr "學會新聞"
+
+#: ./interfaces.py:28
+msgid "policy"
+msgstr "相關學術公共政策"
+
+#: ./interfaces.py:27
+msgid "recruitment_notice"
+msgstr "徵人啟事"
+
+#: ./interfaces.py:27
+msgid "reward"
+msgstr "獎助學金"
+
+#: ./interfaces.py:26
+msgid "speech"
+msgstr "演講"
+
