@@ -1,14 +1,21 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="taiwananthro.content">
 
 
-
     <subscriber
-        for="* zope.lifecycleevent.interfaces.IObjectAddedEvent"
-        handler=".event.moveContentToTop"
+        for="taiwananthro.content.interfaces.IAnthroReport zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+   
+    <subscriber
+        for="Products.PlonePAS.events.IUserLoggedInEvent"
+        handler=".event.back_to_cover"
+    />
+    <subscriber
+        for="Products.PlonePAS.events.IUserLoggedOutEvent"
+        handler=".event.back_to_cover"
     />
 
 </configure>

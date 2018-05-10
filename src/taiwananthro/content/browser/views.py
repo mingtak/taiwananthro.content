@@ -15,6 +15,10 @@ import urllib2
 from plone import namedfile
 import datetime
 import time
+import csv
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 class CreateNews(BrowserView):
@@ -88,18 +92,24 @@ class CreateDisseration(BrowserView):
 class AnthroReportView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
     def __call__(self):
+
+        roles = api.user.get_roles()
+        if 'Manager' in roles or 'Site Administrator' in roles:
+            self.paid = True
+            return self.template()
+
         current = api.user.get_current()
         user_paid = current.getProperty('user_paid')
         request = self.request
         context = self.context
         alsoProvides(request, IDisableCSRFProtection)
-        
+
         if user_paid:
             self.paid = True
         else:
             effective_timestamp = context.effective_date.timeTime()
             now_timestamp = time.time()
-            if now_timestamp >= effective_timestamp + 518400:
+            if now_timestamp >= effective_timestamp + 518400: # 寫死了，只有6天，要改
                 self.paid = True
             else:
                 self.paid  = False
@@ -132,3 +142,123 @@ class NewsView(BrowserView):
         self.richtext = context.richtext.raw
         
         return self.template()
+
+
+class CreateUser(BrowserView):
+    def __call__(self):
+        request = self.request
+        portal = api.portal.get()
+        alsoProvides(request, IDisableCSRFProtection)
+        file = open('/home/henryc/taiwananthro.csv', 'r')
+        csv_data = csv.reader(file)
+        for data in csv_data:
+            try:
+                fullname = data[0]
+                email = data[1]
+                gender = data[2]
+                birthday = data[3]
+                education = data[4]
+                job = data[5]
+                registered_residence = data[6]
+                cellphone = data[7]
+                address = data[8]
+                paid = data[9]
+                event_member = data[10]
+                if birthday:
+                    year = birthday.split('/')[0]
+                    month = birthday.split('/')[1]
+                    day = birthday.split('/')[2]
+                    year = int(year) + 1911
+                    birthday = '%d-%s-%s' %(year, month, day)
+                    birthday = datetime.datetime.strptime(birthday, '%Y-%m-%d')
+                if paid == '已繳':
+                    is_paid = True
+                elif paid == '未繳':
+                    is_paid = False
+                if event_member == '是':
+                    is_event_member = True
+                elif event_member == '否':
+                    is_event_member = False
+
+                properties = dict(
+                    fullname=fullname,
+                    gender=gender,
+                    birthday=birthday,
+                    education=education,
+                    job=job,
+                    registered_residence=registered_residence,
+                    cellphone=cellphone,
+                    address=address,
+                    paid=is_paid,
+                    event_member=is_event_member
+                )
+                user = api.user.create(
+                    email=email,
+                    password='123456',
+                    properties=properties,
+                )
+                print fullname
+            except:
+                import pdb;pdb.set_trace()
+
+
+class UserProfile(BrowserView):
+    template = ViewPageTemplateFile('template/user_profile.pt')
+    def __call__(self):
+        abs_url = api.portal.get().absolute_url()
+        request = self.request
+        if api.user.is_anonymous():
+            request.response.redirect('%s/login' %abs_url)
+            return 
+        current = api.user.get_current()
+
+        self.fullname = current.getProperty('fullname')
+        self.gender = current.getProperty('gender')
+        birthday = current.getProperty('birthday')
+        self.education = current.getProperty('education')
+        self.job = current.getProperty('job')
+        self.registered_residence = current.getProperty('registered_residence')
+        self.cellphone = current.getProperty('cellphone')
+        self.address = current.getProperty('address')
+        paid = current.getProperty('paid')
+        event_member = current.getProperty('event_member')
+	self.birthday = birthday.strftime('%Y-%m-%d') if birthday else ''
+        self.is_paid = '已繳' if paid else '未繳'
+        self.is_event_member = '是' if paid else '否'
+        self.email = current.getProperty('email')
+
+        return self.template()
+
+
+class UpdateUserProfile(BrowserView):
+    def __call__(self):
+        request = self.request
+        abs_url = api.portal.get().absolute_url()
+        if api.user.is_anonymous():
+            request.response.redirect('%s/login' %abs_url)
+            return 
+        cellphone = request.get('cellphone', '')
+        gender = request.get('gender', '')
+        registered_residence = request.get('registered_residence', '')
+        job = request.get('job', '')
+        birthday = request.get('birthday', '')
+        address = request.get('address', '')
+        education = request.get('education', '')
+        try:
+            birthday_check = datetime.datetime.strptime(birthday, '%Y-%m-%d') if birthday else ''
+	except:
+	    request.response.redirect('%s/user_profile' %abs_url)
+            api.portal.show_message('日期格式有誤,Ex:西元年-月-日', self.request, 'error')
+	    return 
+        current = api.user.get_current()
+        current.setMemberProperties(mapping={
+                                            'gender': gender,
+                                            'registered_residence': registered_residence,
+                                            'job': job,
+                                            'cellphone': cellphone,
+                                            'birthday': birthday_check,
+                                            'address': address,
+                                            'education': education,
+                                        })
+        abs_url = api.portal.get().absolute_url()
+        request.response.redirect('%s/user_profile' %abs_url)

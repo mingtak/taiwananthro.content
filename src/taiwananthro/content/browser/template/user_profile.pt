@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="taiwananthro.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+<?python
+ from plone import api
+ abs_url = api.portal.get().absolute_url()
+?>
+<form action="${abs_url}/update_user_profile" method="POST">
+    <p>${view/fullname}</p>
+    <p>${view/email}</p>
+    <p>${view/is_paid}</p>
+    <p>${view/is_event_member}</p>
+    <input type="text" value="${view/gender}" name='gender'/>
+    <input type="text" value="${view/birthday}" name='birthday'/>
+    <input type="text" value="${view/education}" name='education'/>
+    <input type="text" value="${view/job}" name='job'/>
+    <input type="text" value="${view/registered_residence}" name='registered_residence'/>
+    <input type="text" value="${view/cellphone}" name='cellphone'/>
+    <input type="text" value="${view/address}" name='address'/>
+    <input type="submit" value="更新" />
+</form>
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

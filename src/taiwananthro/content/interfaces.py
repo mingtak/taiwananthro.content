@@ -64,23 +64,29 @@ class IDisseration(Interface):
         title=_(u"Content Text"),
         required=False,
     )
-    
 
 
 class IAnthroReport(Interface):
     title = schema.TextLine(
         title=_(u'Title'),
+        required=True
+    )
+
+    description = schema.Text(
+        title=_(u'Description'),
         required=False
     )
 
     file = NamedBlobFile(
         title=_(u'File'),
-        required=False
+        required=True
     )
+
     cover_image = NamedBlobImage(
         title=_(u"AnthroReport Image."),
-        required=False
+        required=True
     )
+
 
 class IRelatedWebsite(Interface):
     title = schema.TextLine(

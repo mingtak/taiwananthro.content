@@ -51,4 +51,26 @@
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
+   <browser:page
+      name='create_user'
+      for='*'
+      class='.views.CreateUser'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+   <browser:page
+      name='user_profile'
+      for='*'
+      class='.views.UserProfile'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+   <browser:page
+      name='update_user_profile'
+      for='*'
+      class='.views.UpdateUserProfile'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+
 </configure>
