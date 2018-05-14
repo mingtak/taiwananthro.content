@@ -5,14 +5,35 @@
 
 
     <subscriber
+        for="* zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+<!--
+    <subscriber
         for="taiwananthro.content.interfaces.IAnthroReport zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
-   
+-->
+    <subscriber
+        for="* zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+
+    <subscriber
+        for="* plone.dexterity.interfaces.IEditFinishedEvent"
+        handler=".event.toFolderContents"
+    />
+
+    <subscriber
+        for="* plone.dexterity.interfaces.ICancelledEvent"
+        handler=".event.toFolderContents"
+    />
+
     <subscriber
         for="Products.PlonePAS.events.IUserLoggedInEvent"
         handler=".event.back_to_cover"
     />
+
     <subscriber
         for="Products.PlonePAS.events.IUserLoggedOutEvent"
         handler=".event.back_to_cover"
