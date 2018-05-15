@@ -9,7 +9,7 @@
   <includeDependencies package="." />
   <include package=".event" />
   <include package=".browser" />
-
+  <include package=".viewlet" />
 
   <genericsetup:registerProfile
       name="default"

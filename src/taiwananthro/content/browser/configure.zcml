@@ -81,4 +81,12 @@
       permission='zope2.View'
       />
 
+   <browser:page
+      name='contact_us_view'
+      for='plone.app.contenttypes.interfaces.IDocument'
+      class='.views.ContactUsView'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+
 </configure>

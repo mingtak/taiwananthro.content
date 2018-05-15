@@ -21,6 +21,15 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+class ContactUsView(BrowserView):
+    template = ViewPageTemplateFile('template/contact_us_view.pt')
+    def __call__(self):
+        request = self.request
+        portal = api.portal.get()
+
+        return self.template()
+
+
 class CreateNews(BrowserView):
     def __call__(self):
         request = self.request
