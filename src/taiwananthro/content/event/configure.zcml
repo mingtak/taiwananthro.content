@@ -3,21 +3,107 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="taiwananthro.content">
 
-
     <subscriber
-        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        for="plone.app.contenttypes.interfaces.IDocument zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
-<!--
+    <subscriber
+        for="plone.app.contenttypes.interfaces.ICollection zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IFile zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IFolder zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IImage zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.ILink zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IEvent zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.INewsItem zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
     <subscriber
         for="taiwananthro.content.interfaces.IAnthroReport zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
--->
     <subscriber
-        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        for="taiwananthro.content.interfaces.INews zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.IDisseration zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.IRelatedWebsite zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveObjectsToTop"
+    />
+
+
+
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IDocument zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.toFolderContents"
     />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.ICollection zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IFile zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IFolder zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IImage zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.ILink zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IEvent zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="plone.app.contenttypes.interfaces.INewsItem zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.IAnthroReport zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.INews zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.IDisseration zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+    <subscriber
+        for="taiwananthro.content.interfaces.IRelatedWebsite zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.toFolderContents"
+    />
+
+
 
     <subscriber
         for="zope.interface.Interface plone.dexterity.interfaces.IEditFinishedEvent"
