@@ -5,7 +5,7 @@
 
 
     <subscriber
-        for="* zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
 <!--
@@ -15,17 +15,17 @@
     />
 -->
     <subscriber
-        for="* zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.toFolderContents"
     />
 
     <subscriber
-        for="* plone.dexterity.interfaces.IEditFinishedEvent"
+        for="zope.interface.Interface plone.dexterity.interfaces.IEditFinishedEvent"
         handler=".event.toFolderContents"
     />
 
     <subscriber
-        for="* plone.dexterity.interfaces.ICancelledEvent"
+        for="zope.interface.Interface plone.dexterity.interfaces.ICancelledEvent"
         handler=".event.toFolderContents"
     />
 
@@ -35,7 +35,7 @@
     />
 
     <subscriber
-        for="Products.PlonePAS.events.IUserLoggedOutEvent"
+        for="Products.PluggableAuthService.interfaces.events.IUserLoggedOutEvent"
         handler=".event.back_to_cover"
     />
 

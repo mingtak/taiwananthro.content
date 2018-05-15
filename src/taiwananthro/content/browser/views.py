@@ -121,8 +121,7 @@ class Cover(BrowserView):
     def __call__(self):
         request = self.request
         portal = api.portal.get()
-        self.img_brain = api.content.find(context=portal['banner'],portal_type='Image'
-            ,sort_on='created',sort_limit=4,sort_order="reverse")
+        self.slider = portal['cover_slider'].listFolderContents()
         self.news_brain = api.content.find(context=portal['news'],portal_type="News"
             ,sort_on="created",sort_limit=6,sort_order="reverse")
         self.annual_meeting_brain = api.content.find(context=portal['annual_meeting'],portal_type="Folder"

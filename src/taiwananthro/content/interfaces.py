@@ -9,6 +9,9 @@ from plone.app.vocabularies.catalog import CatalogSource
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from plone.namedfile.field import NamedBlobImage,NamedBlobFile
 from plone.app.textfield import RichText
+#from plone.dexterity.content import Container
+#from zope.interface import implementer
+
 
 news_catagory = SimpleVocabulary(
     [SimpleTerm(value=u'institute_news', title=_(u'institute_news')),
@@ -87,6 +90,11 @@ class IAnthroReport(Interface):
         required=True
     )
 
+
+#@implementer(IAnthroReport)
+#class AnthroReport(Container):
+#    """
+#    """
 
 class IRelatedWebsite(Interface):
     title = schema.TextLine(
