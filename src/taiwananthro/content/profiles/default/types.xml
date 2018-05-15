@@ -3,5 +3,6 @@
   <object name="News" meta_type="Dexterity FTI"/>
   <object name="Disseration" meta_type="Dexterity FTI"/>
   <object name="AnthroReport" meta_type="Dexterity FTI"/>
+  <object name="AnthroArticle" meta_type="Dexterity FTI"/>
   <object name="RelatedWebsite" meta_type="Dexterity FTI"/>
 </object>

@@ -2,6 +2,7 @@
 """Module where all interfaces, events and exceptions live."""
 from taiwananthro.content import _
 from zope import schema
+from plone.supermodel import model
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from z3c.relationfield.schema import RelationList, RelationChoice
@@ -9,8 +10,8 @@ from plone.app.vocabularies.catalog import CatalogSource
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from plone.namedfile.field import NamedBlobImage,NamedBlobFile
 from plone.app.textfield import RichText
-#from plone.dexterity.content import Container
-#from zope.interface import implementer
+from plone.dexterity.content import Container
+from zope.interface import implementer
 
 
 news_catagory = SimpleVocabulary(
@@ -80,21 +81,53 @@ class IAnthroReport(Interface):
         required=False
     )
 
-    file = NamedBlobFile(
-        title=_(u'File'),
-        required=True
-    )
-
     cover_image = NamedBlobImage(
-        title=_(u"AnthroReport Image."),
+        title=_(u"Current Cover Image."),
         required=True
     )
 
+    file = NamedBlobFile(
+        title=_(u'Full File'),
+        required=False
+    )
 
-#@implementer(IAnthroReport)
-#class AnthroReport(Container):
-#    """
-#    """
+@implementer(IAnthroReport)
+class AnthroReport(Container):
+    """
+    """
+
+class IAnthroArticle(Interface):
+    title = schema.TextLine(
+        title=_(u'Title'),
+        required=True
+    )
+
+    description = schema.Text(
+        title=_(u'Description'),
+        required=False
+    )
+
+    abstract = RichText(
+        title= _(u"Abstract"),
+        required=True
+    )
+
+    keyword = schema.TextLine(
+        title=_(u"Keywords"),
+        description=_(u"Split with common(,)"),
+        required=True,
+    )
+
+    text = RichText(
+        title= _(u"Full Text"),
+        required=False
+    )
+
+    file = NamedBlobFile(
+        title= _(u"Attach File"),
+        required=False
+    )
+
 
 class IRelatedWebsite(Interface):
     title = schema.TextLine(
