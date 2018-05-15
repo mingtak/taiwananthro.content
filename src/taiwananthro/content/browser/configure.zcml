@@ -38,6 +38,14 @@
       permission='zope2.View'
       />
   <browser:page
+      name='anthro_article_view'
+      for='taiwananthro.content.interfaces.IAnthroArticle'
+      class='.views.AnthroArticleView'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+
+  <browser:page
       name='cover'
       for='*'
       class='.views.Cover'

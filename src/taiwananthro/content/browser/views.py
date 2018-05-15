@@ -89,6 +89,13 @@ class CreateDisseration(BrowserView):
         Disseration.setSubject(subject)
 
 
+class AnthroArticleView(BrowserView):
+    template = ViewPageTemplateFile('template/anthor_article_view.pt')
+
+    def __call__(self):
+        return self.template()
+
+
 class AnthroReportView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
     def __call__(self):
