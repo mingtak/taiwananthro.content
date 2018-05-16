@@ -14,4 +14,14 @@
         permission="zope2.View"
     />
 
+    <browser:viewlet
+        name="header_tools"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        template="header_tools.pt"
+        class=".viewlet.HeaderTools"
+        layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+        permission="zope2.View"
+    />
+
 </configure>
