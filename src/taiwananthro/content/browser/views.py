@@ -137,13 +137,11 @@ class Cover(BrowserView):
     def __call__(self):
         request = self.request
         portal = api.portal.get()
-        self.slider = portal['cover_slider'].listFolderContents()
+        #self.slider = portal['cover_slider'].listFolderContents()
         self.news_brain = api.content.find(context=portal['news'],portal_type="News"
-            ,sort_on="created",sort_limit=6,sort_order="reverse")
-        self.annual_meeting_brain = api.content.find(context=portal['annual_meeting'],portal_type="Folder"
-            ,sort_on="created",sort_limit=1,sort_order="reverse")[0]
-        self.research_publish_brain = api.content.find(context=portal['research_publish'],portal_type="AnthroReport"
-            ,sort_on="created",sort_order="reverse",sort_limit=1)[0]
+            ,sort_on="created",sort_limit=6,sort_order="reverse")[0:6]
+        self.annual_meeting = portal['annual_meeting']['current']['current']
+        self.research_publish = portal['anthropology_publish']['current']['current']
 
         return self.template()
 

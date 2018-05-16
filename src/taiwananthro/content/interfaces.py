@@ -102,8 +102,8 @@ class IAnthroArticle(Interface):
         required=True
     )
 
-    description = schema.Text(
-        title=_(u'Description'),
+    metaData = RichText(
+        title=_(u'Meta Data'),
         required=False
     )
 
