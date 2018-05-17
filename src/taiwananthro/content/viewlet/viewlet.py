@@ -29,4 +29,14 @@ class CoverSlider(base.ViewletBase):
 
     def update(self):
         portal = api.portal.get()
+
+        normalizer = queryUtility(IIDNormalizer)
+        permissions = []
+        for permission, roles in getattr(self.view, '__ac_permissions__', tuple()):
+            permissions.append(normalizer.normalize(permission))
+        if 'none' in permissions or 'view' in permissions:
+            self.isFrontend = True
+        else:
+            self.isFrontend = False
+
         self.slider = portal['cover_slider'].listFolderContents()
