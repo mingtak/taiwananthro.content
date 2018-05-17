@@ -102,6 +102,11 @@ class IAnthroArticle(Interface):
         required=True
     )
 
+    openDate = schema.Date(
+        title=_(u"Open Date"),
+        required=True
+    )
+
     metaData = RichText(
         title=_(u'Meta Data'),
         required=False

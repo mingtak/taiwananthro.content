@@ -102,6 +102,33 @@ class AnthroArticleView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_article_view.pt')
 
     def __call__(self):
+        request = self.request
+        context = self.context
+        alsoProvides(request, IDisableCSRFProtection)
+
+        now = datetime.date.today()
+
+        if now >= context.openDate:
+            self.paid = True
+            return self.template()
+
+        if api.user.is_anonymous():
+            self.paid = False
+            return self.template()
+
+        roles = api.user.get_roles()
+        if 'Manager' in roles or 'Site Administrator' in roles:
+            self.paid = True
+            return self.template()
+
+        current = api.user.get_current()
+        user_paid = current.getProperty('user_paid')
+
+        if user_paid:
+            self.paid = True
+        else:
+            self.paid = False
+
         return self.template()
 
 
@@ -109,6 +136,7 @@ class AnthroReportView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
     def __call__(self):
 
+        """
         roles = api.user.get_roles()
         if 'Manager' in roles or 'Site Administrator' in roles:
             self.paid = True
@@ -128,7 +156,7 @@ class AnthroReportView(BrowserView):
             if now_timestamp >= effective_timestamp + 518400: # 寫死了，只有6天，要改
                 self.paid = True
             else:
-                self.paid  = False
+                self.paid  = False """
         return self.template()
 
 
