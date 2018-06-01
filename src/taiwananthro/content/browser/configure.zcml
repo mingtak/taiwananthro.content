@@ -88,5 +88,12 @@
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
+   <browser:page
+      name='delete_user'
+      for='*'
+      class='.views.DeleteUser'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
 
 </configure>

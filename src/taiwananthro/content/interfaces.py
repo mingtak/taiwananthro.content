@@ -86,6 +86,11 @@ class IAnthroReport(Interface):
         required=True
     )
 
+    openDate = schema.Date(
+        title=_(u"Full Text Open Date"),
+        required=True
+    )
+
     file = NamedBlobFile(
         title=_(u'Full File'),
         required=False

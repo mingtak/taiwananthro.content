@@ -136,6 +136,14 @@ class AnthroReportView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
     def __call__(self):
 
+        context = self.context
+
+        now = datetime.date.today()
+        if now >= context.openDate:
+            self.paid = True
+        else:
+            self.paid = False
+
         """
         roles = api.user.get_roles()
         if 'Manager' in roles or 'Site Administrator' in roles:
@@ -167,7 +175,7 @@ class Cover(BrowserView):
         portal = api.portal.get()
         #self.slider = portal['cover_slider'].listFolderContents()
         self.news_brain = api.content.find(context=portal['news'],portal_type="News"
-            ,sort_on="created",sort_limit=6,sort_order="reverse")[0:6]
+            ,sort_on="modified",sort_limit=6,sort_order="reverse")[0:6]
         self.annual_meeting = portal['annual_meeting']['annual_01']['current']
         self.research_publish = portal['anthropology_publish']['01']['current']
 
@@ -235,12 +243,12 @@ class CreateUser(BrowserView):
                 )
                 user = api.user.create(
                     email=email,
-                    password='123456',
+                    password='tA#$iW&9n',
                     properties=properties,
                 )
-                print fullname
-            except:
-                import pdb;pdb.set_trace()
+            except Exception as e:
+                print e.message
+                print '%s 建立失敗' %fullname
 
 
 class UserProfile(BrowserView):
@@ -303,3 +311,15 @@ class UpdateUserProfile(BrowserView):
                                         })
         abs_url = api.portal.get().absolute_url()
         request.response.redirect('%s/user_profile' %abs_url)
+
+
+class DeleteUser(BrowserView):
+    def __call__(self):
+        request = self.request
+        alsoProvides(request, IDisableCSRFProtection)
+
+        users = api.user.get_users()
+        for user in users:
+            print user.getProperty('fullname')
+            api.user.delete(user=user)
+        return
