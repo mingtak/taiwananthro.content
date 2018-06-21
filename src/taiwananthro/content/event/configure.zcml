@@ -3,6 +3,22 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="taiwananthro.content">
 
+    <!-- 修正 resolveuid 位址錯誤的問題 -->
+    <subscriber
+        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.updateRichText"
+    />
+    <!-- 修正 resolveuid 位址錯誤的問題 -->
+    <subscriber
+        for="zope.interface.Interface zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".event.updateRichText"
+    />
+
+    <subscriber
+        for="plone.app.contenttypes.interfaces.IImage zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".event.moveImageToPubImage"
+    />
+
     <subscriber
         for="plone.app.contenttypes.interfaces.IDocument zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
@@ -19,10 +35,12 @@
         for="plone.app.contenttypes.interfaces.IFolder zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
-    <subscriber
+
+<!--    <subscriber
         for="plone.app.contenttypes.interfaces.IImage zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"
     />
+-->
     <subscriber
         for="plone.app.contenttypes.interfaces.ILink zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".event.moveObjectsToTop"

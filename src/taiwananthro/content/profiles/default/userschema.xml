@@ -1,49 +1,49 @@
-<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema" i18n:domain="mingtak.custom">
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema" i18n:domain="taiwananthro.content">
   <schema name="member-fields">
 
     <field name="paid" type="zope.schema.Bool" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="paid">是否繳款</title>
+      <title i18n:translate="">Paid</title>
     </field>
 
     <field name="event_member" type="zope.schema.Bool" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="paid">是否為活動會員</title>
+      <title i18n:translate="">Is active member</title>
     </field>
 
     <field name="gender" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="gender">性別</title>
+      <title i18n:translate="">Gender</title>
     </field>
 
     <field name="cellphone" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="cellphone">聯絡電話</title>
+      <title i18n:translate="">Cellphone</title>
     </field>
 
     <field name="job" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="job">現職</title>
+      <title i18n:translate="">Job</title>
     </field>
 
     <field name="birthday" type="zope.schema.Date" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="birthday">生日</title>
+      <title i18n:translate="">Birthday</title>
     </field>
 
     <field name="address" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="address">通訊地址</title>
+      <title i18n:translate="">Address</title>
     </field>
 
     <field name="registered_residence" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="registered_residence">戶籍地</title>
+      <title i18n:translate="">Registered residence</title>
     </field>
 
     <field name="education" type="zope.schema.TextLine" users:forms="In User Profile">
       <required>False</required>
-      <title i18n:translate="education">學經歷</title>
+      <title i18n:translate="">Education</title>
     </field>
     
   </schema>

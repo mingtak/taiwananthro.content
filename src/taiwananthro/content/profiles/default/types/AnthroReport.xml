@@ -8,7 +8,7 @@
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">人類學視界</property>
+      name="title">Anthro Report</property>
   <property
       i18n:translate=""
       name="description"></property>
@@ -22,6 +22,7 @@
   <property name="allowed_content_types">
     <!-- <element value="" />-->
     <element value="AnthroArticle" />
+    <element value="Image" />
   </property>
   <property name="filter_content_types">True</property>
   <property name="global_allow">True</property>

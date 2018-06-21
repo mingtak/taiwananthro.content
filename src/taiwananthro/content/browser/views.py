@@ -21,6 +21,11 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+class TestDebug(BrowserView):
+    def __call__(self):
+        import pdb; pdb.set_trace()
+
+
 class ContactUsView(BrowserView):
     template = ViewPageTemplateFile('template/contact_us_view.pt')
     def __call__(self):
@@ -122,7 +127,10 @@ class AnthroArticleView(BrowserView):
             return self.template()
 
         current = api.user.get_current()
-        user_paid = current.getProperty('user_paid')
+        try:
+            user_paid = current.getProperty('user_paid')
+        except:
+            user_paid = None
 
         if user_paid:
             self.paid = True

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-03-31 03:29+0000\n"
+"POT-Creation-Date: 2018-06-01 02:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,90 +14,198 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./interfaces.py:68
-msgid "AnthroReport Image."
-msgstr "封面"
+#: ./interfaces.py:121
+msgid "Abstract"
+msgstr "摘要"
 
-#: ./interfaces.py:43
+#: ./profiles/default/userschema.xml
+msgid "Address"
+msgstr "地址"
+
+#: ./profiles/default/types/AnthroReport.xml
+msgid "Anthro Report"
+msgstr "人類學視界"
+
+#: ./profiles/default/types/AnthroArticle.xml
+msgid "AnthroArticle"
+msgstr "人類學視界文章"
+
+#: ./interfaces.py:137
+msgid "Attach File"
+msgstr "附加檔案"
+
+#: ./interfaces.py:60
 msgid "Author"
 msgstr "作者"
 
-#: ./interfaces.py:25
+#: ./profiles/default/userschema.xml
+msgid "Birthday"
+msgstr "生日"
+
+#: ./interfaces.py:44
 msgid "Category"
 msgstr "分類"
 
-#: ./interfaces.py:36
+#: ./profiles/default/userschema.xml
+msgid "Cellphone"
+msgstr "手機號碼"
+
+#: ./interfaces.py:53
 msgid "Content Text"
 msgstr "內容"
 
-#: ./interfaces.py:64
-msgid "File"
-msgstr "檔案"
+#: ./interfaces.py:85
+msgid "Current Cover Image."
+msgstr "本期封面圖片"
 
-#: ./interfaces.py:47
+#: ./interfaces.py:80
+msgid "Description"
+msgstr "描述"
+
+#: ./profiles/default/types/Disseration.xml
+msgid "Disseration"
+msgstr "論文"
+
+#: ./profiles/default/userschema.xml
+msgid "Education"
+msgstr "學歷"
+
+#: ./interfaces.py:95
+msgid "Full File"
+msgstr "全文檔案"
+
+#: ./interfaces.py:132
+msgid "Full Text"
+msgstr "完整文字"
+
+#: ./interfaces.py:90
+msgid "Full Text Open Date"
+msgstr "全文開放日期"
+
+#: ./profiles/default/userschema.xml
+msgid "Gender"
+msgstr "性別"
+
+#: ./configure.zcml:21
+msgid "Installs the taiwananthro.content add-on."
+msgstr ""
+
+#: ./profiles/default/userschema.xml
+msgid "Is active member"
+msgstr "是否活動會員"
+
+#: ./profiles/default/userschema.xml
+msgid "Job"
+msgstr "現職"
+
+#: ./interfaces.py:64
 msgid "Key Word"
 msgstr "關鍵字"
 
-#: ./interfaces.py:32
+#: ./interfaces.py:126
+msgid "Keywords"
+msgstr "關鍵字"
+
+#: ./interfaces.py:116
+msgid "Meta Data"
+msgstr "描述資訊(Meta Data)"
+
+#: ./profiles/default/types/News.xml
+msgid "News"
+msgstr "學會新聞"
+
+#: ./interfaces.py:49
 msgid "News Image."
 msgstr "圖片sss"
 
-#: ./interfaces.py:21
+#: ./interfaces.py:111
+msgid "Open Date"
+msgstr "開放日期"
+
+#: ./profiles/default/userschema.xml
+msgid "Paid"
+msgstr "付費會員"
+
+#: ./profiles/default/userschema.xml
+msgid "Registered residence"
+msgstr "戶籍地址"
+
+#: ./profiles/default/types/RelatedWebsite.xml
+msgid "Related web site"
+msgstr "相關網站"
+
+#: ./interfaces.py:127
+msgid "Split with common(,)"
+msgstr "請以半型逗點(,)分隔"
+
+#: ./interfaces.py:40
 msgid "Title"
 msgstr "標題"
 
-#: ./interfaces.py:74
+#: ./configure.zcml:30
+msgid "Uninstalls the taiwananthro.content add-on."
+msgstr ""
+
+#: ./interfaces.py:144
 msgid "Web Site"
 msgstr "網站"
 
-#: ./interfaces.py:78
+#: ./interfaces.py:148
 msgid "Web Site URL"
 msgstr "網址"
 
-#: ./interfaces.py:27
+#: ./interfaces.py:24
 msgid "anthropology_category"
 msgstr "人類學界相關新聞"
 
-#: ./interfaces.py:26
+#: ./interfaces.py:19
 msgid "anthropology_news"
 msgstr "學會新聞"
 
-#: ./interfaces.py:28
+#: ./interfaces.py:25
 msgid "anthropology_plan"
 msgstr "國科會通過之人類學門計畫等"
 
-#: ./interfaces.py:83
+#: ./interfaces.py:30
 msgid "domestic"
 msgstr "國內"
 
-#: ./interfaces.py:82
+#: ./interfaces.py:152
 msgid "domestic? foreign?"
 msgstr "國內或國外:"
 
-#: ./interfaces.py:26
+#: ./interfaces.py:20
 msgid "event"
 msgstr "活動"
 
-#: ./interfaces.py:83
+#: ./interfaces.py:31
 msgid "foreign"
 msgstr "國外"
 
-#: ./interfaces.py:26
+#: ./interfaces.py:18
 msgid "institute_news"
 msgstr "學會新聞"
 
-#: ./interfaces.py:28
+#: ./interfaces.py:26
 msgid "policy"
 msgstr "相關學術公共政策"
 
-#: ./interfaces.py:27
+#: ./interfaces.py:23
 msgid "recruitment_notice"
 msgstr "徵人啟事"
 
-#: ./interfaces.py:27
+#: ./interfaces.py:22
 msgid "reward"
 msgstr "獎助學金"
 
-#: ./interfaces.py:26
+#: ./interfaces.py:21
 msgid "speech"
 msgstr "演講"
+
+#: ./configure.zcml:21
+msgid "taiwananthro.content"
+msgstr ""
+
+#: ./configure.zcml:30
+msgid "taiwananthro.content (uninstall)"
+msgstr ""
