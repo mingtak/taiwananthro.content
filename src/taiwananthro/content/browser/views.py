@@ -183,7 +183,7 @@ class Cover(BrowserView):
         portal = api.portal.get()
         #self.slider = portal['cover_slider'].listFolderContents()
         self.news_brain = api.content.find(context=portal['news'],portal_type="News"
-            ,sort_on="modified",sort_limit=6,sort_order="reverse")[0:6]
+            ,sort_on="effective",sort_limit=6,sort_order="reverse")[0:6]
         self.annual_meeting = portal['annual_meeting']['annual_01']['current']
         self.research_publish = portal['anthropology_publish']['01']['current']
 

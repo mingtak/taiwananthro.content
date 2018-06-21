@@ -40,15 +40,18 @@ class INews(Interface):
         title=_(u'Title'),
         required=True,
     )
+
     category = schema.Choice(
         title=_(u'Category'),
         vocabulary=news_catagory,
         required=True,
     )
+
     image = NamedBlobImage(
         title=_(u"News Image."),
         required=False
     )
+
     richtext = RichText(
         title=_(u"Content Text"),
         required=True,
