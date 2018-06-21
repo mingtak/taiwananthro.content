@@ -7,50 +7,24 @@ from plone.app.textfield.value import RichTextValue
 
 def replaceRichText(obj, attrStr):
     try:
-        attr = getattr(obj, attrStr, None).text.raw
+        value = getattr(obj, attrStr, None).raw
         while 1:
-            if '../resolveuid' in text:
-                text = text.replace('../resolveuid', 'resolveuid')
+            if '../resolveuid' in value:
+                value = value.replace('../resolveuid', 'resolveuid')
             else:
-                obj.text = RichTextValue(text)
+                setattr(obj, attrStr, RichTextValue(value))
                 break
     except:pass
 
 
 
 def updateRichText(obj, event):
-    # text
-    try:
-        text = obj.text.raw
-        while 1:
-            if '../resolveuid' in text:
-                text = text.replace('../resolveuid', 'resolveuid')
-            else:
-                obj.text = RichTextValue(text)
-                break
-    except:pass
 
-    # abstract
-    try:
-        abstract = obj.abstract.raw
-        while 1:
-            if '../resolveuid' in abstract:
-                abstract = abstract.replace('../resolveuid', 'resolveuid')
-            else:
-                obj.abstract = RichTextValue(abstract)
-                break
-    except:pass
-
-    # metaData
-    try:
-        metaData = obj.metaData.raw
-        while 1:
-            if '../resolveuid' in metaData:
-                metaData = metaData.replace('../resolveuid', 'resolveuid')
-            else:
-                obj.metaData = RichTextValue(metaData)
-                break
-    except:pass
+    replaceRichText(obj, 'text')
+    replaceRichText(obj, 'abstract')
+    replaceRichText(obj, 'metaData')
+    replaceRichText(obj, 'richtext')
+    replaceRichText(obj, 'content')
 
 
 def moveImageToPubImage(obj, event):
