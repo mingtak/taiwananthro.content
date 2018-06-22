@@ -104,32 +104,23 @@ class CreateDisseration(BrowserView):
 
 
 class AnthroArticleView(BrowserView):
+
     template = ViewPageTemplateFile('template/anthor_article_view.pt')
 
     def canSee (self):
         request = self.request
         context = self.context
 
-
-    def __call__(self):
-        request = self.request
-        context = self.context
-        alsoProvides(request, IDisableCSRFProtection)
-
         now = datetime.date.today()
-
         if now >= context.openDate:
-            self.canSee = True
-            return self.template()
+            return True
 
         if api.user.is_anonymous():
-            self.canSee = False
-            return self.template()
+            return False
 
         roles = api.user.get_roles()
         if 'Manager' in roles or 'Site Administrator' in roles:
-            self.canSee = True
-            return self.template()
+            return True
 
         current = api.user.get_current()
         try:
@@ -140,47 +131,18 @@ class AnthroArticleView(BrowserView):
             evetn_member = None
 
         if paid or event_member:
-            self.canSee = True
+            return True
         else:
-            self.canSee = False
-
-        return self.template()
+            return False
 
 
-class AnthroReportView(BrowserView):
-    template = ViewPageTemplateFile('template/anthor_report_view.pt')
     def __call__(self):
 
-        context = self.context
-
-        now = datetime.date.today()
-        if now >= context.openDate:
-            self.paid = True
-        else:
-            self.paid = False
-
-        """
-        roles = api.user.get_roles()
-        if 'Manager' in roles or 'Site Administrator' in roles:
-            self.paid = True
-            return self.template()
-
-        current = api.user.get_current()
-        user_paid = current.getProperty('user_paid')
-        request = self.request
-        context = self.context
-        alsoProvides(request, IDisableCSRFProtection)
-
-        if user_paid:
-            self.paid = True
-        else:
-            effective_timestamp = context.effective_date.timeTime()
-            now_timestamp = time.time()
-            if now_timestamp >= effective_timestamp + 518400: # 寫死了，只有6天，要改
-                self.paid = True
-            else:
-                self.paid  = False """
         return self.template()
+
+
+class AnthroReportView(AnthroArticleView):
+    template = ViewPageTemplateFile('template/anthor_report_view.pt')
 
 
 class Cover(BrowserView):
