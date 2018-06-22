@@ -104,4 +104,11 @@
       permission='zope2.View'
       />
 
+  <!-- configlet -->
+  <browser:page
+      name="TASettingControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="cmf.ManagePortal"
+      class=".TASetting.TASettingControlPanelView"
+  />
 </configure>
