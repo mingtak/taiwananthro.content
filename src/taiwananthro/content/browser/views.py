@@ -106,6 +106,11 @@ class CreateDisseration(BrowserView):
 class AnthroArticleView(BrowserView):
     template = ViewPageTemplateFile('template/anthor_article_view.pt')
 
+    def canSee (self):
+        request = self.request
+        context = self.context
+
+
     def __call__(self):
         request = self.request
         context = self.context
@@ -114,28 +119,30 @@ class AnthroArticleView(BrowserView):
         now = datetime.date.today()
 
         if now >= context.openDate:
-            self.paid = True
+            self.canSee = True
             return self.template()
 
         if api.user.is_anonymous():
-            self.paid = False
+            self.canSee = False
             return self.template()
 
         roles = api.user.get_roles()
         if 'Manager' in roles or 'Site Administrator' in roles:
-            self.paid = True
+            self.canSee = True
             return self.template()
 
         current = api.user.get_current()
         try:
-            user_paid = current.getProperty('user_paid')
+            paid = current.getProperty('paid')
+            event_member = current.getProperty('event_member')
         except:
-            user_paid = None
+            paid = None
+            evetn_member = None
 
-        if user_paid:
-            self.paid = True
+        if paid or event_member:
+            self.canSee = True
         else:
-            self.paid = False
+            self.canSee = False
 
         return self.template()
 
