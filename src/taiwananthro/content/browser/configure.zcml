@@ -59,13 +59,14 @@
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
-   <browser:page
+<!--   <browser:page
       name='create_user'
       for='*'
       class='.views.CreateUser'
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
+-->
    <browser:page
       name='user_profile'
       for='*'
@@ -88,13 +89,32 @@
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
-   <browser:page
+<!--   <browser:page
       name='delete_user'
       for='*'
       class='.views.DeleteUser'
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
+-->
+
+<!-- 重作帳號
+   <browser:page
+      name='export_users'
+      for='*'
+      class='.views.ExportUsers'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+
+   <browser:page
+      name='import_users'
+      for='*'
+      class='.views.ImportUsers'
+      layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
+      permission='zope2.View'
+      />
+-->
 
    <browser:page
       name='test_debug'

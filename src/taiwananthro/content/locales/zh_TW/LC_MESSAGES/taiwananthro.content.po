@@ -124,7 +124,7 @@ msgstr "開放日期"
 
 #: ./profiles/default/userschema.xml
 msgid "Paid"
-msgstr "付費會員"
+msgstr "已付會費(每年十一月更新)"
 
 #: ./profiles/default/userschema.xml
 msgid "Registered residence"

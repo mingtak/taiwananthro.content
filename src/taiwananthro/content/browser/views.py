@@ -17,12 +17,15 @@ import datetime
 import time
 import csv
 import sys
+import pickle
+import random
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
 class TestDebug(BrowserView):
     def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
         import pdb; pdb.set_trace()
 
 
@@ -144,6 +147,17 @@ class AnthroArticleView(BrowserView):
 class AnthroReportView(AnthroArticleView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
 
+    def getGroups(self):
+        context = self.context
+
+        children = context.getChildNodes()
+        groups = []
+        for item in children:
+            if item.group not in groups:
+                groups.append(item.group)
+
+        return groups
+
 
 class Cover(BrowserView):
     template = ViewPageTemplateFile('template/cover.pt')
@@ -248,7 +262,7 @@ class UserProfile(BrowserView):
         self.address = current.getProperty('address')
         paid = current.getProperty('paid')
         event_member = current.getProperty('event_member')
-	self.birthday = birthday.strftime('%Y-%m-%d') if birthday else ''
+        self.birthday = birthday.strftime('%Y-%m-%d') if birthday else ''
         self.is_paid = '已繳' if paid else '未繳'
         self.is_event_member = '是' if paid else '否'
         self.email = current.getProperty('email')
@@ -288,6 +302,60 @@ class UpdateUserProfile(BrowserView):
                                         })
         abs_url = api.portal.get().absolute_url()
         request.response.redirect('%s/user_profile' %abs_url)
+
+
+class ExportUsers(BrowserView):
+
+    def __call__(self):
+        request = self.request
+        alsoProvides(request, IDisableCSRFProtection)
+
+        users = api.user.get_users()
+        userList = []
+        for current in users:
+            item = {}
+            item['fullname'] = current.getProperty('fullname')
+            item['gender'] = current.getProperty('gender')
+            item['birthday'] = current.getProperty('birthday')
+            item['education'] = current.getProperty('education')
+            item['job'] = current.getProperty('job')
+            item['registered_residence'] = current.getProperty('registered_residence')
+            item['cellphone'] = current.getProperty('cellphone')
+            item['address'] = current.getProperty('address')
+            item['paid'] = current.getProperty('paid')
+            item['event_member'] = current.getProperty('event_member')
+            item['birthday'] = current.getProperty('birthday')
+            item['email'] = current.getProperty('email')
+
+            userList.append(item)
+            api.user.delete(user=current)
+
+        import pdb; pdb.set_trace()
+        with open('/tmp/TAUserList', 'wb') as file:
+            pickle.dump(userList, file)
+
+
+class ImportUsers(BrowserView):
+
+    def __call__(self):
+        request = self.request
+        alsoProvides(request, IDisableCSRFProtection)
+
+        with open('/tmp/TAUserList') as file:
+            users = pickle.load(file)
+
+        for item in users:
+            data = {}
+            for k,v in item.items():
+                data[k] = v
+                if k == 'fullname':
+                    print v
+
+            user = api.user.create(
+                username = 'u%s' % random.randint(10000000,99999999),
+                password='tA#$iW&9n',
+                properties=data,
+            )
 
 
 class DeleteUser(BrowserView):

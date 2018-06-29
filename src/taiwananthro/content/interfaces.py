@@ -115,6 +115,21 @@ class IAnthroArticle(Interface):
         required=True
     )
 
+    group = schema.TextLine(
+        title=_(u'Group'),
+        required=True
+    )
+
+    pages = schema.TextLine(
+        title=_(u'Pages'),
+        required=True
+    )
+
+    authorName = schema.TextLine(
+        title=_(u'Author Name'),
+        required=True
+    )
+
     metaData = RichText(
         title=_(u'Meta Data'),
         required=False
