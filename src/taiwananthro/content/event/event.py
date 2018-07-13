@@ -32,7 +32,9 @@ def moveImageToPubImage(obj, event):
     Move Image Object to pub_image folder
     """
     portal = api.portal.get()
-    api.content.move(source=obj, target=portal['pub_image'], safe_id=True)
+
+    if obj.getParentNode() not in (portal['pub_image'], portal['cover_slider']):
+        api.content.move(source=obj, target=portal['pub_image'], safe_id=True)
 
 
 def toFolderContents(obj, event):

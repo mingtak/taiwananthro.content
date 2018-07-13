@@ -117,7 +117,7 @@ class IAnthroArticle(Interface):
 
     group = schema.TextLine(
         title=_(u'Group'),
-        required=True
+        required=False
     )
 
     pages = schema.TextLine(
@@ -137,13 +137,13 @@ class IAnthroArticle(Interface):
 
     abstract = RichText(
         title= _(u"Abstract"),
-        required=True
+        required=False
     )
 
     keyword = schema.TextLine(
         title=_(u"Keywords"),
         description=_(u"Split with common(,)"),
-        required=True,
+        required=False,
     )
 
     text = RichText(
