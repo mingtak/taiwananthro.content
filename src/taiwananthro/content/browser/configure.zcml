@@ -89,6 +89,16 @@
       layer="taiwananthro.content.interfaces.ITaiwananthroContentLayer"
       permission='zope2.View'
       />
+
+   <!-- folder_contents 的替代品，解決滑鼠敏感度致單擊拖拉不分的問題 -->
+   <browser:page
+      name='item_order'
+      for="Products.CMFCore.interfaces._content.IFolderish"
+      class="plone.app.content.browser.contents.FolderContentsView"
+      template="template/item_order.pt"
+      permission="cmf.ListFolderContents"
+      />
+
 <!--   <browser:page
       name='delete_user'
       for='*'
