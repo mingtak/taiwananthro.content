@@ -125,7 +125,7 @@ msgstr "學會新聞"
 
 #: ./interfaces.py:49
 msgid "News Image."
-msgstr "圖片sss"
+msgstr "圖片"
 
 #: ./interfaces.py:111
 msgid "Open Date"
