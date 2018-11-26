@@ -35,6 +35,27 @@ class ContactUsView(BrowserView):
         request = self.request
         portal = api.portal.get()
 
+        recipient = api.portal.get_registry_record('taiwananthro.content.browser.TASetting.ITASetting.email')
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        message = request.form.get('message')
+        if name and email and phone and message:
+            api.portal.send_email(
+                recipient=recipient,
+                sender=email,
+                subject=u'經 臺灣人類學與民族學學會 網站寄來的郵件，由 %s 發出' % name,
+                body="電話: %s\n訊息:%s" % (phone, message),
+            )
+            api.portal.send_email(
+                recipient="andy@mingtak.com.tw",
+                sender=email,
+                subject=u'經 臺灣人類學與民族學學會 網站寄來的郵件，由 %s 發出' % name,
+                body="電話: %s\n訊息:%s" % (phone, message),
+            )
+            api.portal.show_message(message=u'感謝您的寶貴意見，訊息已發送。', request=request)
+            request.response.redirect('%s/about_us/contact_us' % portal.absolute_url())
+            return
         return self.template()
 
 
@@ -110,7 +131,7 @@ class AnthroArticleView(BrowserView):
 
     template = ViewPageTemplateFile('template/anthor_article_view.pt')
 
-    def canSee (self):
+    def canSee(self):
         request = self.request
         context = self.context
 
@@ -146,6 +167,10 @@ class AnthroArticleView(BrowserView):
 
 class AnthroReportView(AnthroArticleView):
     template = ViewPageTemplateFile('template/anthor_report_view.pt')
+
+    # 歷期視界直接開放
+    def is02(self):
+        return self.context.getParentNode().id == '02'
 
     def getGroups(self):
         context = self.context

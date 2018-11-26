@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-06-01 02:17+0000\n"
+"POT-Creation-Date: 2018-08-20 01:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: taiwananthro.content\n"
 
-#: ./interfaces.py:121
+#: ./interfaces.py:139
 msgid "Abstract"
 msgstr ""
 
 #: ./profiles/default/userschema.xml
 msgid "Address"
+msgstr ""
+
+#: ./browser/TASetting.py:22
+msgid "Address1"
+msgstr ""
+
+#: ./browser/TASetting.py:27
+msgid "Address2"
 msgstr ""
 
 #: ./profiles/default/types/AnthroReport.xml
@@ -33,19 +41,23 @@ msgstr ""
 msgid "AnthroArticle"
 msgstr ""
 
-#: ./interfaces.py:137
+#: ./interfaces.py:155
 msgid "Attach File"
 msgstr ""
 
-#: ./interfaces.py:60
+#: ./interfaces.py:63
 msgid "Author"
+msgstr ""
+
+#: ./interfaces.py:129
+msgid "Author Name"
 msgstr ""
 
 #: ./profiles/default/userschema.xml
 msgid "Birthday"
 msgstr ""
 
-#: ./interfaces.py:44
+#: ./interfaces.py:45
 msgid "Category"
 msgstr ""
 
@@ -53,15 +65,15 @@ msgstr ""
 msgid "Cellphone"
 msgstr ""
 
-#: ./interfaces.py:53
+#: ./interfaces.py:56
 msgid "Content Text"
 msgstr ""
 
-#: ./interfaces.py:85
+#: ./interfaces.py:88
 msgid "Current Cover Image."
 msgstr ""
 
-#: ./interfaces.py:80
+#: ./interfaces.py:83
 msgid "Description"
 msgstr ""
 
@@ -73,20 +85,36 @@ msgstr ""
 msgid "Education"
 msgstr ""
 
-#: ./interfaces.py:95
+#: ./browser/TASetting.py:32
+msgid "Email"
+msgstr ""
+
+#: ./browser/TASetting.py:37
+msgid "Footer Setting(HTML)"
+msgstr ""
+
+#: ./interfaces.py:98
 msgid "Full File"
 msgstr ""
 
-#: ./interfaces.py:132
+#: ./interfaces.py:150
 msgid "Full Text"
 msgstr ""
 
-#: ./interfaces.py:90
+#: ./interfaces.py:93
 msgid "Full Text Open Date"
 msgstr ""
 
 #: ./profiles/default/userschema.xml
 msgid "Gender"
+msgstr ""
+
+#: ./browser/TASetting.py:17
+msgid "Google map embeded code"
+msgstr ""
+
+#: ./interfaces.py:119
+msgid "Group"
 msgstr ""
 
 #: ./configure.zcml:21
@@ -101,15 +129,15 @@ msgstr ""
 msgid "Job"
 msgstr ""
 
-#: ./interfaces.py:64
+#: ./interfaces.py:67
 msgid "Key Word"
 msgstr ""
 
-#: ./interfaces.py:126
+#: ./interfaces.py:144
 msgid "Keywords"
 msgstr ""
 
-#: ./interfaces.py:116
+#: ./interfaces.py:134
 msgid "Meta Data"
 msgstr ""
 
@@ -117,12 +145,16 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ./interfaces.py:49
+#: ./interfaces.py:51
 msgid "News Image."
 msgstr ""
 
-#: ./interfaces.py:111
+#: ./interfaces.py:114
 msgid "Open Date"
+msgstr ""
+
+#: ./interfaces.py:124
+msgid "Pages"
 msgstr ""
 
 #: ./profiles/default/userschema.xml
@@ -137,8 +169,16 @@ msgstr ""
 msgid "Related web site"
 msgstr ""
 
-#: ./interfaces.py:127
+#: ./interfaces.py:145
 msgid "Split with common(,)"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "TA setup"
+msgstr ""
+
+#: ./browser/TASetting.py:47
+msgid "Taiwan Anthropology Setting"
 msgstr ""
 
 #: ./interfaces.py:40
@@ -149,11 +189,11 @@ msgstr ""
 msgid "Uninstalls the taiwananthro.content add-on."
 msgstr ""
 
-#: ./interfaces.py:144
+#: ./interfaces.py:162
 msgid "Web Site"
 msgstr ""
 
-#: ./interfaces.py:148
+#: ./interfaces.py:166
 msgid "Web Site URL"
 msgstr ""
 
@@ -173,7 +213,7 @@ msgstr ""
 msgid "domestic"
 msgstr ""
 
-#: ./interfaces.py:152
+#: ./interfaces.py:170
 msgid "domestic? foreign?"
 msgstr ""
 

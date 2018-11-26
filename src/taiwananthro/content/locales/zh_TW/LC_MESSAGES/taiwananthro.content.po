@@ -22,7 +22,16 @@ msgstr "摘要"
 msgid "Address"
 msgstr "地址"
 
+#: ./browser/TASetting.py:22
+msgid "Address1"
+msgstr "通訊會址"
+
+#: ./browser/TASetting.py:27
+msgid "Address2"
+msgstr "永久會址"
+
 #: ./profiles/default/types/AnthroReport.xml
+
 msgid "Anthro Report"
 msgstr "人類學視界"
 

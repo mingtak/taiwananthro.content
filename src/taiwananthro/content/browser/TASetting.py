@@ -12,6 +12,27 @@ from zope import schema
 class ITASetting(Form.Schema):
 
     """ Basic setting for taiwananthro """
+
+    map = schema.Text(
+        title=_(u"Google map embeded code"),
+        required=False,
+    )
+
+    address1 = schema.Text(
+        title=_(u"Address1"),
+        required=False,
+    )
+
+    address2 = schema.Text(
+        title=_(u"Address2"),
+        required=False,
+    )
+
+    email = schema.TextLine(
+        title=_(u"Email"),
+        required=False,
+    )
+
     footer = schema.Text(
         title=_(u"Footer Setting(HTML)"),
         required=False,
